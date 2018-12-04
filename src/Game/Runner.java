@@ -2,9 +2,7 @@ package Game;
 
 import People.Person;
 import Rooms.Room;
-import Rooms.Shmoney_Room;
 import Rooms.WinningRoom;
-
 import java.util.Scanner;
 
 public class Runner {
@@ -24,27 +22,12 @@ public class Runner {
 				building[x][y] = new Room(x,y);
 			}
 		}
-		
+		new Board(5,5,);
 		//Create a random winning room.
 		int x = (int)(Math.random()*building.length);
 		int y = (int)(Math.random()*building.length);
 		building[x][y] = new WinningRoom(x, y);
 
-		int z = (int)(Math.random()*building.length);
-		int a = (int)(Math.random()*building.length);
-		if(x==z&&y==a)
-		{
-			while (x == z && y == a)
-			{
-				z = (int) (Math.random() * building.length);
-			}
-			building[z][a] = new Shmoney_Room(z, a);
-		}
-		else
-		{
-			building[z][a] = new Shmoney_Room(z, a);
-		}
-		 //Setup player 1 and the input scanner
 		Person player1 = new Person("FirstName", "FamilyName", 0,0);
 		building[0][0].enterRoom(player1);
 		Scanner in = new Scanner(System.in);
